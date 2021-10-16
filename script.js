@@ -84,36 +84,32 @@ function selected(){
 
 function fill(){
     alert("Clicked Fill All")
-    for(let i =0;i< numRows;i++){
-        for(let j =0;j<numCols;j++){
-            
-        }
-    }
+    //selects the cells within the table
+    var table = document.querySelectorAll("td");
+    //loops through the table for each cell there is and sets it to the colorselected
+    table.forEach(function (cell){
+        cell.style.backgroundColor=colorSelected;
+    });
 }
 
 function clearAll(){
     alert("Clicked Clear All")
-        for(let i =0;i< numRows;i++){
-            for(let j =0;j<numCols;j++){
-            
-        }
-    }
+    var table = document.querySelectorAll("td");
+    table.forEach(function (cell){
+        //sets all background colors to white
+        cell.style.backgroundColor="white";
+    });
 }
 
 function fillU(){
     alert("Clicked Fill All Uncolored")
-    for(let i =0;i< numRows;i++){
-        for(let j =0;j<numCols;j++){
-            
+    var table = document.querySelectorAll("td");
+    table.forEach(function (cell){
+        //since the clear all set the background to white, checks for both empty and white
+        if(cell.style.backgroundColor==""|| cell.style.backgroundColor=="white"){
+            cell.style.backgroundColor=colorSelected;
         }
-    }
+    });
 }
-function setColor(){
-    var cells = document.getElementById('grid');
-    for (var i = 0; i < cells.length; i++) {
-        cells[i].attachEventListener("click", setBackgroundColor);
-    }
-}
-function setBackgroundColor() {
-    this.style.backgroundColor = 'green';
-}
+
+
