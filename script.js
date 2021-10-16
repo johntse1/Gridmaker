@@ -11,6 +11,9 @@ function addR() {
     if(numRows==0){
         var row = table.insertRow(0);
         var cell1 = row.insertCell();
+        cell1.onclick=function(){
+            this.style.backgroundColor = colorSelected;
+        }
         numCols++;
     }
     //Every case after the first one
@@ -19,6 +22,9 @@ function addR() {
         //loops through to create all current columns in the row
         for(let i=0; i< numCols;i++){
             var cell1 = row.insertCell(i);
+            cell1.onclick=function(){
+                this.style.backgroundColor = colorSelected;
+            }
         }
     }
     //test
@@ -31,6 +37,9 @@ function addC() {
     if(numRows==0){
         var row = table.insertRow(0);
         var cell1 = row.insertCell();
+        cell1.onclick=function(){
+            this.style.backgroundColor = colorSelected;
+        }
         numCols++;
     }
     //loops through the number of rows to create the column
@@ -38,6 +47,9 @@ function addC() {
         //This references the 
         var col = document.getElementById("grid").rows[i];
         var x = col.insertCell(-1);
+        x.onclick=function(){
+            this.style.backgroundColor = colorSelected;
+        }
         //x.innerHTML = "new cell";
     }
     numCols++;
@@ -72,12 +84,36 @@ function selected(){
 
 function fill(){
     alert("Clicked Fill All")
+    for(let i =0;i< numRows;i++){
+        for(let j =0;j<numCols;j++){
+            
+        }
+    }
 }
 
 function clearAll(){
     alert("Clicked Clear All")
+        for(let i =0;i< numRows;i++){
+            for(let j =0;j<numCols;j++){
+            
+        }
+    }
 }
 
 function fillU(){
     alert("Clicked Fill All Uncolored")
+    for(let i =0;i< numRows;i++){
+        for(let j =0;j<numCols;j++){
+            
+        }
+    }
+}
+function setColor(){
+    var cells = document.getElementById('grid');
+    for (var i = 0; i < cells.length; i++) {
+        cells[i].attachEventListener("click", setBackgroundColor);
+    }
+}
+function setBackgroundColor() {
+    this.style.backgroundColor = 'green';
 }
